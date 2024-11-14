@@ -1,0 +1,54 @@
+@Library_Api_HostAddress = http://localhost:5001
+
+POST {{Library_Api_HostAddress}}/books/
+Content-Type: application/json
+Accept: application/json
+Authorization: VerySecret
+
+{
+    "Isbn": "978-3-16-148410-0",
+    "Title": "Example Book Title",
+    "Author": "Author Name",
+    "ShortDescription": "This is a short description of the book.",
+    "PageCount": 123,
+    "ReleaseDate": "2023-10-01T00:00:00Z"
+}
+
+###
+
+GET {{Library_Api_HostAddress}}/books/
+Content-Type: application/json
+Accept: application/json
+
+###
+
+GET {{Library_Api_HostAddress}}/books?searchTerm=Example
+Content-Type: application/json
+Accept: application/json
+
+###
+GET {{Library_Api_HostAddress}}/books/978-3-16-148410-0
+Content-Type: application/json
+Accept: application/json
+
+###
+PUT {{Library_Api_HostAddress}}/books/978-3-16-148410-0
+Content-Type: application/json
+Accept: application/json
+
+{
+    "Title": "Example Book Title new",
+    "Author": "Author Name",
+    "ShortDescription": "This is a short description of the book.",
+    "PageCount": 123,
+    "ReleaseDate": "2023-10-01T00:00:00Z"
+}
+
+###
+DELETE  {{Library_Api_HostAddress}}/books/978-3-16-148410-0
+Content-Type: application/json
+Accept: application/json
+
+
+###
+GET {{Library_Api_HostAddress}}/status/
